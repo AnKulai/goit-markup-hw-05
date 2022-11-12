@@ -46,9 +46,7 @@ body {
   letter-spacing: 0.03em;
   color: var(--main-color);
 }
-:hover {
-  transition-duration: 250ms;
-}
+
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -199,6 +197,9 @@ a {
   line-height: 1.7;
   letter-spacing: 0.02em;
   color: var(--color-info);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .information:hover,
@@ -324,6 +325,8 @@ a {
   height: 44px;
   border-radius: 50%;
   gap: 22px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-team:hover,
@@ -360,6 +363,8 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:focus,
@@ -367,7 +372,12 @@ a {
   outline: none;
   border: 1px solid #2196f3;
 }
-.clients-link:focus > svg,
+.clients-link > svg {
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+clients-link:focus > svg,
 .clients-link:hover > svg {
   fill: #2196f3;
 }
@@ -435,7 +445,6 @@ footer > .container {
 .info-footer:hover,
 .info-footer:focus {
   color: var(--color-hover);
-  transition-duration: 250ms;
 }
 
 .btns {
@@ -581,4 +590,87 @@ address {
   visibility: visible;
   opacity: 1;
   transition-duration: 250ms;
+  animation: popAnimate 3s;
+}
+
+.earth_orbit {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  scale: 0.8;
+  margin: auto;
+  width: 550px;
+  height: 550px;
+  border: 10px solid brown;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transform: rotateX(255deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.earth {
+  transform-style: preserve-3d;
+  transform: rotateX(110deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.moon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: inset -35px 0px 10px rgb(0 0 0 / 90%);
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Moon_farside_LRO_color_mosaic.png/300px-Moon_farside_LRO_color_mosaic.png");
+  background-size: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  animation-name: run;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  animation-duration: 12s;
+  transform: rotateZ(0deg) translate(272px) rotateY(0deg) rotateX(-65deg);
+}
+
+@keyframes popAnimate {
+  0% {
+   scale: 0;
+  }
+  50% {
+    background-color: #000000;
+    opacity: 0.8;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes run {
+  0% {
+    transform: rotateZ(0deg) translate(272px) rotateY(90deg) rotateX(90deg);
+    box-shadow: inset 0px -40px 10px rgb(0 0 0 / 90%);
+  }
+  50% {
+    transform: rotateZ(180deg) translate(272px) rotateY(90deg) rotateX(270deg);
+    box-shadow: inset 0px +40px 10px rgb(0 0 0 / 90%);
+  }
+
+  75% {
+    box-shadow: inset 0px 100px 10px rgb(0 0 0 / 90%);
+  }
+  75.001% {
+    box-shadow: inset 0px -100px 10px rgb(0 0 0 / 90%);
+  }
+
+  100% {
+    transform: rotateZ(360deg) translate(272px) rotateY(90deg) rotateX(450deg);
+    box-shadow: inset 0px -40px 10px rgb(0 0 0 / 90%);
+  }
 }
