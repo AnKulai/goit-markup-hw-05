@@ -312,6 +312,7 @@ a {
   height: 70px;
   background: rgba(47, 48, 58, 0.8);
   width: 100%;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
